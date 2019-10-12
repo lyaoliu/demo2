@@ -47,6 +47,11 @@ public class FileController {
             id=URLEncoder.encode(id,"utf-8");
             response.addHeader("Content-Disposition", "attachment;filename=" + id + ".jpg");
             IOUtils.copy(inputStream, outputStream);
+             byte [] bytes=new byte[1024];
+             int len;
+             while ((len=inputStream.read(bytes))!=-1){
+                 outputStream.write(bytes,0,len);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

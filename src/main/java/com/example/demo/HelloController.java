@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -16,7 +17,8 @@ import java.util.Map;
 @EnableAutoConfiguration
 public class HelloController {
     @RequestMapping("/index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        request.getSession();
         return "websocket";
     }
     @RequestMapping("websocket")

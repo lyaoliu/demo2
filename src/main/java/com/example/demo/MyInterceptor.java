@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * ${name} class
- *
+ *拦截器
  * @author lyliu
  * @date 2018/08/02 下午 3:54
  */

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -7,8 +8,7 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
@@ -35,6 +35,13 @@ public class WebSocketServer {
         connections.add(this);
         String message = String.format("* %s %s", nickname, "加入聊天！");
         broadcast(message);
+        List list=new ArrayList();
+        for (WebSocketServer socketServer:connections ){
+            list.add(socketServer.nickname);
+        }
+        Map map=new HashMap(16);
+        map.put("result",list);
+        broadcast(JSON.toJSONString(map));
     }
     @OnClose
     public void end() {

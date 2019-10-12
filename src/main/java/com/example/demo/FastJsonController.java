@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -20,8 +21,8 @@ import java.util.Date;
 public class FastJsonController {
     @ApiOperation("获取用户信息")
     @ApiImplicitParam(name = "name", value = "用户名", dataType = "string", paramType = "query")
-    @RequestMapping ("/test/{name}")
-    public User test( @PathVariable String name, HttpServletRequest request ) {
+    @RequestMapping (value = "/test/",method = RequestMethod.POST)
+    public User test( String name, HttpServletRequest request ) {
         User user = new User();
         user.setId(1);
         user.setUsername(name);

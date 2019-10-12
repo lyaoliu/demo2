@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.RoleMapper">
+
+    <insert id="insert" parameterType="com.example.demo.entity.Role">
+        insert into role(name,descr) values(#{name},#{descr})
+    </insert>
+
+    <select id="getById" parameterType="java.lang.Integer" resultType="com.example.demo.entity.Role">
+        select id,name,descr from role where id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.example.demo.entity.Role">
+        update role set descr = #{descr} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from role where id = #{id}
+    </delete>
+</mapper>

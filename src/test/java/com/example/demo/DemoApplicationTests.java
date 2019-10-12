@@ -32,5 +32,11 @@ public class DemoApplicationTests {
         String file="F:\\文档\\消费服务功能（投标）.docx";
         test.send("",content,file);
     }
-
+    @Test
+  public void test() throws InterruptedException {
+       long a=System.currentTimeMillis();
+       Thread.sleep(1000);
+       System.out.println(1);
+        System.out.println((System.currentTimeMillis()-a)/1000D);
+  }
 }

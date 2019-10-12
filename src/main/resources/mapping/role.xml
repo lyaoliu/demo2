@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="role">
+    <!--查询所有部门-->
+    <select id="listRole" resultType="java.util.HashMap">
+        select * from role
+    </select>
+    <!--删除单个部门-->
+    <delete id="deleteById" parameterType="java.util.HashMap">
+        delete from role where id=#{id}
+    </delete>
+    <!--新增角色-->
+    <insert id="insertRole" parameterType="com.example.demo.entity.Role">
+       insert into role(name,descr) values(#{name},#{descr})
+    </insert>
+</mapper>
